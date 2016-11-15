@@ -57,7 +57,7 @@ def setup(webhook_url=None):
         dp = updater.dispatcher
     dp.add_handler(MessageHandler([], example_handler))  # Remove this line
     dp.add_handler(CommandHandler('start', start))
-    dp.dispatcher.add_handler(CommandHandler('hello', hello))
+    dp.add_handler(CommandHandler('hello', hello))
 
     if webhook_url:
         bot.set_webhook(webhook_url=webhook_url)
