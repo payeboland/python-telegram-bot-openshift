@@ -21,7 +21,7 @@ from threading import Thread
 from telegram import Bot
 from telegram.ext import Dispatcher, MessageHandler, Updater
 
-TOKEN = 'your-token-here'
+TOKEN = '200657939:AAEvM5T3WghxDBZRQ2tM680abBUFmAseUxc'
 
 
 def example_handler(bot, update):
