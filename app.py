@@ -23,12 +23,10 @@ from telegram.ext import Dispatcher, MessageHandler, Updater, CommandHandler, Ca
 
 TOKEN = '200657939:AAEvM5T3WghxDBZRQ2tM680abBUFmAseUxc'
 
+status="zero"
 
 def start(bot, update):	
-    keyboard = [[InlineKeyboardButton("ساخت کارت ویزیت", callback_data='1'),
-                 InlineKeyboardButton("Option 2", callback_data='2')],
-
-                [InlineKeyboardButton("Option 3", callback_data='3')]]
+    keyboard = [[InlineKeyboardButton("ساخت کارت ویزیت", callback_data='start_cmd')]]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
     update.message.reply_text('سلام به ربات کارت ویزیت ساز خوش آمدید', reply_markup=reply_markup)
@@ -40,8 +38,9 @@ def hello(bot, update):
 
 def button(bot, update):
     query = update.callback_query
+    status=query.data
 
-    bot.editMessageText(text="Selected option: %s" % query.data,
+    bot.editMessageText(text="Selected option: %s status: %s" % query.data % status,
                         chat_id=query.message.chat_id,
                         message_id=query.message.message_id)
 
