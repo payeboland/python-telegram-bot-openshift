@@ -24,14 +24,6 @@ from telegram.ext import Dispatcher, MessageHandler, Updater, CommandHandler
 TOKEN = '200657939:AAEvM5T3WghxDBZRQ2tM680abBUFmAseUxc'
 
 
-def example_handler(bot, update):
-    # Remove this handler
-    bot.send_message(
-        update.message.chat_id,
-        text='سلام خوش آمدید!'
-    )
-
-
 def start(bot, update):
     update.message.reply_text('Hello World!')
 
@@ -55,7 +47,7 @@ def setup(webhook_url=None):
         updater = Updater(TOKEN)
         bot = updater.bot
         dp = updater.dispatcher
-    dp.add_handler(MessageHandler([], example_handler))  # Remove this line
+
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('hello', hello))
 
