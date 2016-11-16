@@ -48,7 +48,7 @@ def button(bot, update):
                         chat_id=query.message.chat_id,
                         message_id=query.message.message_id , reply_markup=reply_markup)
     
-    else:
+    elif status[0]=='b':
         bot.editMessageText(text="Selected option: %s" % status,
                         chat_id=query.message.chat_id,
                         message_id=query.message.message_id)
