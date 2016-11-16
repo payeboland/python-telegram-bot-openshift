@@ -18,17 +18,20 @@
 import logging
 from queue import Queue
 from threading import Thread
-from telegram import Bot
+from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Dispatcher, MessageHandler, Updater, CommandHandler
-from telebot import types
 
 TOKEN = '200657939:AAEvM5T3WghxDBZRQ2tM680abBUFmAseUxc'
 
 
 def start(bot, update):	
-    markup = types.ReplyKeyboardMarkup()
-    markup.row('ساخت کارت ویزیت', 'v')
-    bot.sendMessage(chat_id=update.message.chat_id, text="سلام خوش آمدید!", reply_markup=markup)
+    keyboard = [[InlineKeyboardButton("Option 1", callback_data='1'),
+                 InlineKeyboardButton("Option 2", callback_data='2')],
+
+                [InlineKeyboardButton("Option 3", callback_data='3')]]
+
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    bot.sendMessage(chat_id=update.message.chat_id, text="سلام خوش آمدید!")
 
 
 def hello(bot, update):
