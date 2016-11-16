@@ -40,7 +40,7 @@ def button(bot, update):
     query = update.callback_query
     status=query.data
 
-    bot.editMessageText(text="Selected option: %s status: %s" % query.data % status,
+    bot.editMessageText(text="Selected option: %s" % status,
                         chat_id=query.message.chat_id,
                         message_id=query.message.message_id)
 
