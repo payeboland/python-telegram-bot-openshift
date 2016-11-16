@@ -39,15 +39,16 @@ def hello(bot, update):
 def button(bot, update):
     query = update.callback_query
     status=query.data
-    #if query.data=="start_cmd":
-    keyboard = [[InlineKeyboardButton("پس زمینه شماره ۱", callback_data='bg1') , InlineKeyboardButton("پس زمینه شماره ۲", callback_data='bg2')],[InlineKeyboardButton("پس زمینه شماره ۳", callback_data='bg3') , InlineKeyboardButton("پس زمینه شماره ۴", callback_data='bg4')]]
-
-    update.message.reply_text('مرحله ی دوم انتخاب پس زمینه', reply_markup=reply_markup)
+    if query.data=="start_cmd":
+        keyboard = [[InlineKeyboardButton("پس زمینه شماره ۱", callback_data='bg1') , InlineKeyboardButton("پس زمینه شماره ۲", callback_data='bg2')],[InlineKeyboardButton("پس زمینه شماره ۳", callback_data='bg3') , InlineKeyboardButton("پس زمینه شماره ۴", callback_data='bg4')]]
     
-    #else:
-        #bot.editMessageText(text="Selected option: %s" % status,
-         #               chat_id=query.message.chat_id,
-          #              message_id=query.message.message_id)
+        reply_markup = InlineKeyboardMarkup(keyboard)
+        update.message.reply_text('مرحله ی دوم انتخاب پس زمینه', reply_markup=reply_markup)
+    
+    else:
+        bot.editMessageText(text="Selected option: %s" % status,
+                        chat_id=query.message.chat_id,
+                        message_id=query.message.message_id)
 
 
 # Write your handlers here
