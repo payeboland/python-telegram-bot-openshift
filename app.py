@@ -20,6 +20,7 @@ from queue import Queue
 from threading import Thread
 from telegram import Bot
 from telegram.ext import Dispatcher, MessageHandler, Updater, CommandHandler
+from telebot import types
 
 TOKEN = '200657939:AAEvM5T3WghxDBZRQ2tM680abBUFmAseUxc'
 
