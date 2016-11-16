@@ -56,12 +56,13 @@ def button(bot, update):
                         chat_id=query.message.chat_id,
                         message_id=query.message.message_id)
 
-def inlinequery(bot, update):
-    query = update.inline_query.query
-    bot.editMessageText(text="Selected option:",
+def setname(bot, update):
+    user = update.message.from_user
+    
+    bot.editMessageText(str(user),
                         chat_id=query.message.chat_id,
                         message_id=query.message.message_id)
-    
+
 
 
 # Write your handlers here
@@ -80,9 +81,9 @@ def setup(webhook_url=None):
         dp = updater.dispatcher
 
     dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(CommandHandler('hello', hello))
+    dp.add_handler(CommandHandler('نام', setname))
     dp.add_handler(CallbackQueryHandler(button))
-    dp.add_handler(InlineQueryHandler(inlinequery))
+
 
 
     if webhook_url:
