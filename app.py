@@ -82,7 +82,7 @@ def setup(webhook_url=None):
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('hello', hello))
     dp.add_handler(CallbackQueryHandler(button))
-    dp.add_handler(CommandHandler("set", setname, pass_args=True, pass_job_queue=True))
+    dp.add_handler(CommandHandler('set', setname, pass_args=True))
 
 
     if webhook_url:
