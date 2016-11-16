@@ -61,7 +61,7 @@ def setname(bot, update):
    
     user = update.message.from_user
     
-    bot.editMessageText(str(user),
+    bot.editMessageText(text=str(user),
                         chat_id=query.message.chat_id,
                         message_id=query.message.message_id)
 
