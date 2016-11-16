@@ -29,7 +29,7 @@ def start(bot, update):
     keyboard = [[InlineKeyboardButton("ساخت کارت ویزیت", callback_data='start_cmd')]]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
-    update.message.reply_text('سلام به ربات کارت ویزیت ساز خوش آمدید', reply_markup=reply_markup)
+    update.message.reply_text('سلام {} عزیز! به ربات کارت ویزیت ساز خوش آمدید', reply_markup=reply_markup)
 
 
 def hello(bot, update):
@@ -39,8 +39,14 @@ def hello(bot, update):
 def button(bot, update):
     query = update.callback_query
     status=query.data
+    if status=='start_cmd':
+        keyboard = [[InlineKeyboardButton("پس زمینه شماره ۱", callback_data='bg1' , InlineKeyboardButton("پس زمینه شماره ۲", callback_data='bg2')],
+		    [InlineKeyboardButton("پس زمینه شماره ۳", callback_data='bg3' , InlineKeyboardButton("پس زمینه شماره ۴", callback_data='bg4')]]
 
-    bot.editMessageText(text="Selected option: %s" % status,
+        update.message.reply_text('سلام {} عزیز! به ربات کارت ویزیت ساز خوش آمدید', reply_markup=reply_markup)
+    
+    elif status[0]=='b':
+        bot.editMessageText(text="Selected option: %s" % status,
                         chat_id=query.message.chat_id,
                         message_id=query.message.message_id)
 
