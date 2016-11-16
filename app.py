@@ -58,7 +58,7 @@ def button(bot, update):
 
 def inlinequery(bot, update):
     query = update.inline_query.query
-    bot.editMessageText(text="Selected option:"
+    bot.editMessageText(text="Selected option:",
                         chat_id=query.message.chat_id,
                         message_id=query.message.message_id)
     
