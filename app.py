@@ -24,8 +24,8 @@ from telegram.ext import Dispatcher, MessageHandler, Updater, CommandHandler
 TOKEN = '200657939:AAEvM5T3WghxDBZRQ2tM680abBUFmAseUxc'
 
 
-def start(bot, update):
-    update.message.reply_text('Hello World!')
+def start(bot, update):	
+    bot.sendMessage(chat_id=update.message.chat_id, text="سلام خوش آمدید!")
 
 
 def hello(bot, update):
