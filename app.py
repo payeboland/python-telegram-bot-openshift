@@ -25,7 +25,9 @@ TOKEN = '200657939:AAEvM5T3WghxDBZRQ2tM680abBUFmAseUxc'
 
 
 def start(bot, update):	
-    bot.sendMessage(chat_id=update.message.chat_id, text="سلام خوش آمدید!")
+    markup = types.ReplyKeyboardMarkup()
+    markup.row('ساخت کارت ویزیت', 'v')
+    bot.sendMessage(chat_id=update.message.chat_id, text="سلام خوش آمدید!", reply_markup=markup)
 
 
 def hello(bot, update):
