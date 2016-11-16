@@ -38,12 +38,14 @@ def hello(bot, update):
 
 def button(bot, update):
     query = update.callback_query
-    status=query.data
-    #if query.data=="start_cmd":
-    keyboard = [ [InlineKeyboardButton("پس زمینه شماره ۱", callback_data='bg1') ]]
-    
+
+    keyboard = [[InlineKeyboardButton("ت", callback_data='start_cmd')]]
+
     reply_markup = InlineKeyboardMarkup(keyboard)
-    update.message.reply_text('مرحله ی دوم انتخاب پس زمینه', reply_markup=reply_markup)
+
+    bot.editMessageText(text="Selected option: %s" % query.data,
+                        chat_id=query.message.chat_id,
+                        message_id=query.message.message_id , reply_markup=reply_markup)
     
     #else:
      #   bot.editMessageText(text="Selected option: %s" % status,
