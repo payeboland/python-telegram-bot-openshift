@@ -24,6 +24,8 @@ from telegram.ext import Dispatcher, MessageHandler, Updater, CommandHandler, Ca
 TOKEN = '200657939:AAEvM5T3WghxDBZRQ2tM680abBUFmAseUxc'
 
 status="zero"
+background="NO"
+name="NO"
 
 def start(bot, update):	
     keyboard = [[InlineKeyboardButton("ساخت کارت ویزیت", callback_data='start_cmd')]]
@@ -49,7 +51,15 @@ def button(bot, update):
                         message_id=query.message.message_id , reply_markup=reply_markup)
     
     elif status[0]=='b':
+        background=status
         bot.editMessageText(text="Selected option: %s" % status,
+                        chat_id=query.message.chat_id,
+                        message_id=query.message.message_id)
+
+def setname(bot, update, args):
+    if status[0]=='b':
+        name=str(args[0])
+        bot.editMessageText(text="Name: %s" % name,
                         chat_id=query.message.chat_id,
                         message_id=query.message.message_id)
 
