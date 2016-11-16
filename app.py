@@ -31,7 +31,7 @@ def start(bot, update):
                 [InlineKeyboardButton("Option 3", callback_data='3')]]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
-    bot.sendMessage(chat_id=update.message.chat_id, text="سلام خوش آمدید!")
+    update.message.reply_text('سلام به ربات کارت ویزیت ساز خوش آمدید', reply_markup=reply_markup)
 
 
 def hello(bot, update):
