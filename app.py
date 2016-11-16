@@ -25,7 +25,7 @@ TOKEN = '200657939:AAEvM5T3WghxDBZRQ2tM680abBUFmAseUxc'
 
 
 def start(bot, update):	
-    keyboard = [[InlineKeyboardButton("Option 1", callback_data='1'),
+    keyboard = [[InlineKeyboardButton("ساخت کارت ویزیت", callback_data='1'),
                  InlineKeyboardButton("Option 2", callback_data='2')],
 
                 [InlineKeyboardButton("Option 3", callback_data='3')]]
@@ -37,6 +37,13 @@ def start(bot, update):
 def hello(bot, update):
     update.message.reply_text(
         'Hello {}'.format(update.message.from_user.first_name))
+
+def button(bot, update):
+    query = update.callback_query
+
+    bot.editMessageText(text="Selected option: %s" % query.data,
+                        chat_id=query.message.chat_id,
+                        message_id=query.message.message_id)
 
 
 # Write your handlers here
@@ -56,6 +63,8 @@ def setup(webhook_url=None):
 
     dp.add_handler(CommandHandler('start', start))
     dp.add_handler(CommandHandler('hello', hello))
+    dp.add_handler(CallbackQueryHandler(button))
+
 
     if webhook_url:
         bot.set_webhook(webhook_url=webhook_url)
