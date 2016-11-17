@@ -72,7 +72,7 @@ def example_handler(bot, update):
             text=res
             )  
         
-        bot.sendPhoto(chat_id=chat_id, photo=open(maker.maker1(name,phone,desc), 'rb'))
+        bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1(name,phone,desc), 'rb'))
 
     else :  
         bot.send_message(
