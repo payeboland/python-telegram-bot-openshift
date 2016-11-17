@@ -74,7 +74,7 @@ def example_handler(bot, update):
             update.message.chat_id,
             text= res
             ) 
-    else  
+    else :  
         bot.send_message(
             update.message.chat_id,
             text=" را وارد کنید /start برای استفاده از ربات و ساخت کارت ویزیت "
