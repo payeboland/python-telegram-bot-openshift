@@ -9,26 +9,26 @@ import arabic_reshaper
 from bidi.algorithm import get_display
 
 def maker1(name,phone,desc):
-	img = Image.open("bg1.png")
-	draw = ImageDraw.Draw(img)
-	# font = ImageFont.truetype(<font-file>, <font-size>)
-	font = ImageFont.truetype("titr.ttf", 16, encoding='unic')
-	# draw.text((x, y),"Sample Text",(r,g,b))
+    img = Image.open("bg1.png")
+    draw = ImageDraw.Draw(img)
+    # font = ImageFont.truetype(<font-file>, <font-size>)
+    font = ImageFont.truetype("titr.ttf", 16, encoding='unic')
+    # draw.text((x, y),"Sample Text",(r,g,b))
 
-	draw.text_alignment = 'right';
-	draw.text_antialias = True
-	draw.text_encoding = 'utf-8'
+    draw.text_alignment = 'right';
+    draw.text_antialias = True
+    draw.text_encoding = 'utf-8'
 
-	name = name.decode('utf-8')
-	disp=arabic_reshaper.reshape(name)
-	disp = get_display(disp)
+    name = name.decode('utf-8')
+    disp=arabic_reshaper.reshape(name)
+    disp = get_display(disp)
 
 
-	photoadd=phone+".png"
+    photoadd=phone+".png"
 
-	draw.text((0, 0),disp,(255,255,255),font=font)
-	img.save(photoadd)
+    draw.text((0, 0),disp,(255,255,255),font=font)
+    img.save(photoadd)
 
-        return photoadd
+    return photoadd
 
 
