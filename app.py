@@ -34,9 +34,13 @@ def start(bot, update):
     update.message.reply_text('سلام {} عزیز! به ربات کارت ویزیت ساز خوش آمدید'.format(update.message.from_user.first_name), reply_markup=reply_markup)
 
 
-def hello(bot, update , args):
-    update.message.reply_text(
-        'Hello {}'.format(args[0]))
+def example_handler(bot, update):
+    # Remove this handler
+    bot.send_message(
+        update.message.chat_id,
+        text='Hello from openshift'
+    )
+
 
 def button(bot, update):
     query = update.callback_query
@@ -83,7 +87,7 @@ def setup(webhook_url=None):
         dp = updater.dispatcher
 
     dp.add_handler(CommandHandler('start', start))
-    dp.add_handler(CommandHandler('نام', hello))
+    dp.add_handler(MessageHandler([], example_handler))
     dp.add_handler(CallbackQueryHandler(button))
 
 
