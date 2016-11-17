@@ -26,6 +26,8 @@ TOKEN = '200657939:AAEvM5T3WghxDBZRQ2tM680abBUFmAseUxc'
 status="zero"
 background="NO"
 name="NO"
+phone="NO"
+desc="NO"
 
 def start(bot, update):	
     keyboard = [[InlineKeyboardButton("ساخت کارت ویزیت", callback_data='start_cmd')]]
@@ -36,19 +38,53 @@ def start(bot, update):
 
 def example_handler(bot, update):
     global status
+    global name
+    global phone
+    global desc
+
     if status[0]=='b':
         status='n'
         nametext = update.message.text
-        #echo (user)
+        name=nametext
         bot.send_message(
             update.message.chat_id,
-            text=nametext
+            text="مرحله ی چهارم: شماره ی تلفنی که می خواهید روی کارت درج شود را وارد کنید."
             )  
+
+    elif status=='n':
+        status='t'
+        phonetext = update.message.text
+        phone=phonetext
+        bot.send_message(
+            update.message.chat_id,
+            text="مرحله ی چهارم: شماره ی تلفنی که می خواهید روی کارت درج شود را وارد کنید."
+            )  
+
+    elif status=='t':
+        status='d'
+        desctext = update.message.text
+        desc=desctext
+        bot.send_message(
+            update.message.chat_id,
+            text="مرحله ی پنجم: توضیحاتی که میخواهید روی کارت درج شود را وارد کنید."
+            )  
+    elif status=='d':
+        res="نام :"+ name + "تلفن :"+ phone + "توضیحات :"+ desc + "بکگراند :"+ background 
+        bot.send_message(
+            update.message.chat_id,
+            text= res
+            ) 
+    else  
+        bot.send_message(
+            update.message.chat_id,
+            text=" را وارد کنید /start برای استفاده از ربات و ساخت کارت ویزیت "
+            ) 
 
 
 def button(bot, update):
     query = update.callback_query
     global status
+    global background
     status= query.data
 
     if status=='start_cmd':
