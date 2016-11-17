@@ -42,7 +42,7 @@ def example_handler(bot, update):
         echo (user)
         bot.send_message(
             update.message.chat_id,
-            text=str(user)
+            text="uuuuuu"
         )  
 
 
