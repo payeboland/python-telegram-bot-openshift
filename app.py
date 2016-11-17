@@ -35,6 +35,7 @@ def start(bot, update):
 
 
 def example_handler(bot, update):
+    global status
     if status[0]=='b':
         status='n'
         #user = update.message.text
