@@ -57,23 +57,21 @@ def example_handler(bot, update):
         phone=phonetext
         bot.send_message(
             update.message.chat_id,
-            text="مرحله ی چهارم: شماره ی تلفنی که می خواهید روی کارت درج شود را وارد کنید."
+            text="مرحله ی پنجم: توضیحاتی که میخواهید روی کارت درج شود را وارد کنید."
             )  
 
     elif status=='t':
         status='d'
         desctext = update.message.text
         desc=desctext
-        bot.send_message(
-            update.message.chat_id,
-            text="مرحله ی پنجم: توضیحاتی که میخواهید روی کارت درج شود را وارد کنید."
-            )  
-    elif status=='d':
+        
         res="نام :"+ name + "تلفن :"+ phone + "توضیحات :"+ desc + "بکگراند :"+ background 
         bot.send_message(
             update.message.chat_id,
-            text= res
-            ) 
+            text=res
+            )  
+
+        #to do PIL task
     else :  
         bot.send_message(
             update.message.chat_id,
