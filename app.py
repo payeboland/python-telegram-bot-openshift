@@ -35,11 +35,10 @@ def start(bot, update):
 
 
 def example_handler(bot, update):
-    # Remove this handler
     if status[0]=='b':
         ststus='n'
-        user = update.message.text
-        echo (user)
+        #user = update.message.text
+        #echo (user)
         bot.send_message(
             update.message.chat_id,
             text="uuuuuu"
