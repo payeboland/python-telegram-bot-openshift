@@ -5,8 +5,11 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw 
 import arabic_reshaper
-
+import random, string
 from bidi.algorithm import get_display
+
+def randomword(length):
+   return ''.join(random.choice(string.lowercase) for i in range(length))
 
 def maker1(name,phone,desc):
     img = Image.open("bg1.png")
@@ -24,7 +27,7 @@ def maker1(name,phone,desc):
     disp = get_display(disp)
 
 
-    photoadd=phone+".png"
+    photoadd=randomword(18)+".png"
 
     draw.text((0, 0),disp,(255,255,255),font=font)
     img.save(photoadd)
