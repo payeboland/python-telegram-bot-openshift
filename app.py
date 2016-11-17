@@ -68,6 +68,8 @@ def example_handler(bot, update):
         
         if background=='bg1':
             bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1(name,phone,desc), 'rb'))
+        elif background=='bg2':
+            bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker2(name,phone,desc), 'rb'))
 
     else :  
         bot.send_message(
