@@ -20,6 +20,7 @@ from queue import Queue
 from threading import Thread
 from telegram import Bot, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Dispatcher, MessageHandler, Updater, CommandHandler, CallbackQueryHandler, InlineQueryHandler
+import maker
 
 TOKEN = '200657939:AAEvM5T3WghxDBZRQ2tM680abBUFmAseUxc'
 
@@ -70,8 +71,9 @@ def example_handler(bot, update):
             update.message.chat_id,
             text=res
             )  
+        
+        bot.sendPhoto(chat_id=chat_id, photo=open(maker.maker1(name,phone,desc), 'rb'))
 
-        #to do PIL task
     else :  
         bot.send_message(
             update.message.chat_id,
