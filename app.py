@@ -46,7 +46,7 @@ def example_handler(bot, update):
 
 
 def button(bot, update):
-    query = update.callback_query]
+    query = update.callback_query
     global status
     status= query.data
 
