@@ -36,10 +36,13 @@ def start(bot, update):
 
 def example_handler(bot, update):
     # Remove this handler
-    bot.send_message(
-        update.message.chat_id,
-        text='Hello from openshift'
-    )
+    if status[0]=='b':
+        ststus='n'
+        user = update.message.from_user
+        bot.send_message(
+            update.message.chat_id,
+            text=str(user)
+        )  
 
 
 def button(bot, update):
@@ -56,9 +59,10 @@ def button(bot, update):
     
     elif status[0]=='b':
         background=status
-        bot.editMessageText(text="Selected option: %s" % status,
-                        chat_id=query.message.chat_id,
-                        message_id=query.message.message_id)
+        bot.send_message(
+        update.message.chat_id,
+        text='مرحله ی سوم:انتخاب نام \n لطفا نام مورد نظر خود برای درج روی کارت را انتخاب کنید'
+ 	)
 
 def setname(bot, update):
     query = update.callback_query
