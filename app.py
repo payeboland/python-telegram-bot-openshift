@@ -38,11 +38,11 @@ def example_handler(bot, update):
     global status
     if status[0]=='b':
         status='n'
-        #user = update.message.text
+        nametext = update.message.text
         #echo (user)
         bot.send_message(
             update.message.chat_id,
-            text=status
+            text=nametext
             )  
 
 
