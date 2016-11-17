@@ -20,8 +20,8 @@ def maker1(name,phone,desc):
     draw.text_encoding = 'utf-8'
     
     font = ImageFont.truetype("titr.ttf", 17, encoding='unic')
-    phone = phone.decode('utf-8')
-    #disp=arabic_reshaper.reshape(phone)
+    #phone = phone.decode('utf-8')
+    disp=arabic_reshaper.reshape(phone)
     disp = get_display(disp)
     draw.text((5, 5),disp,(255,255,255),font=font)
 
