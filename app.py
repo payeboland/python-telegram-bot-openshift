@@ -64,14 +64,6 @@ def button(bot, update):
                         chat_id=query.message.chat_id,
                         message_id=query.message.message_id)
 
-def setname(bot, update):
-    query = update.callback_query
-   
-    user = update.message.text
-    echo user
-    bot.editMessageText(text=user,
-                        chat_id=query.message.chat_id,
-                        message_id=query.message.message_id)
 
 
 
