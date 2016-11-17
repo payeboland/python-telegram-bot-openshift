@@ -66,13 +66,8 @@ def example_handler(bot, update):
         desctext = update.message.text
         desc=desctext
         
-        res="نام :"+ name + "تلفن :"+ phone + "توضیحات :"+ desc + "بکگراند :"+ background 
-        bot.send_message(
-            update.message.chat_id,
-            text=res
-            )  
-        
-        bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1(name,phone,desc), 'rb'))
+        if background=='bg1':
+            bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1(name,phone,desc), 'rb'))
 
     else :  
         bot.send_message(
