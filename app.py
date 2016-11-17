@@ -59,10 +59,9 @@ def button(bot, update):
     
     elif status[0]=='b':
         background=status
-        bot.send_message(
-        update.message.chat_id,
-        text='مرحله ی سوم:انتخاب نام \n لطفا نام مورد نظر خود برای درج روی کارت را انتخاب کنید'
- 	)
+        bot.editMessageText(text="مرحله ی سوم: لطفا نام مورد نظر خود برای درج روی کارت را بنویسید.",
+                        chat_id=query.message.chat_id,
+                        message_id=query.message.message_id)
 
 def setname(bot, update):
     query = update.callback_query
