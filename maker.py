@@ -19,7 +19,7 @@ def maker1(name,phone,desc):
     draw.text_antialias = True
     draw.text_encoding = 'utf-8'
 
-    name = name.decode('utf-8')
+    #name = name.decode('utf-8')
     disp=arabic_reshaper.reshape(name)
     disp = get_display(disp)
 
