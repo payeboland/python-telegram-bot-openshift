@@ -29,6 +29,11 @@ background="NO"
 name="NO"
 phone="NO"
 desc="NO"
+mail="NO"
+site="NO"
+back="NO"
+sub="NO"
+
 
 def start(bot, update):	
     keyboard = [[InlineKeyboardButton("ساخت کارت ویزیت", callback_data='start_cmd')]]
@@ -44,6 +49,10 @@ def example_handler(bot, update):
     global name
     global phone
     global desc
+    global mail
+    global site
+    global back
+    global sub
 
     if status[0]=='b':
         status='n'
@@ -55,23 +64,61 @@ def example_handler(bot, update):
             )  
 
     elif status=='n':
-        status='t'
+        status='i'
         phonetext = update.message.text
         phone=phonetext
         bot.send_message(
             update.message.chat_id,
-            text="مرحله ی پنجم: توضیحاتی که میخواهید روی کارت درج شود را وارد کنید."
+            text="مرحله ی پنجم: سمت خود را برای درج روی کارت وارد کنید."
+            )  
+
+    elif status=='i':
+        status='j'
+        desctext = update.message.text
+        desc=desctext
+        bot.send_message(
+            update.message.chat_id,
+            text="مرحله ی ششم: آدرس ایمیل خود را وارد کنید. (حداکثر ۱۹ کاراکتر(."
+            ) 
+
+    elif status=='j':
+        status='k'
+        mailtext = update.message.text
+        mail=mailtext
+        bot.send_message(
+            update.message.chat_id,
+            text="مرحله ی هفتم: آدرس وب سایت خود را وارد کنید. (حداکثر ۲۵ کاراکتر(."
+            ) 
+ 
+    elif status=='k':
+        status='l'
+        sitetext = update.message.text
+        site=sitetext
+        bot.send_message(
+            update.message.chat_id,
+            text="مرحله ی نهم: توضیحات مربوط به پشت کارت را وارد کنید."
+            )  
+
+    elif status=='l':
+        status='t'
+        backtext = update.message.text
+        back=backtext
+        bot.send_message(
+            update.message.chat_id,
+            text="مرحله ی دهم: زیر نویس مربوط به پشت کارت را وارد کنید."
             )  
 
     elif status=='t':
         status='d'
-        desctext = update.message.text
-        desc=desctext
+        subtext = update.message.text
+        sub=subtext
         
         if background=='bg1':
-            bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1(name,phone,desc), 'rb'))
+            bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1_f(name,phone,desc,mail,site), 'rb'))
+            bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1_b(back,sub), 'rb'))
         elif background=='bg2':
-            bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker2(name,phone,desc), 'rb'))
+            bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1_f(name,phone,desc,mail,site), 'rb'))
+            bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1_b(back,sub), 'rb'))
 
     else :  
         bot.send_message(
