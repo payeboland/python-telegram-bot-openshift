@@ -34,7 +34,9 @@ def start(bot, update):
     keyboard = [[InlineKeyboardButton("ساخت کارت ویزیت", callback_data='start_cmd')]]
 
     reply_markup = InlineKeyboardMarkup(keyboard)
-    update.message.reply_text('سلام {} عزیز! به ربات کارت ویزیت ساز خوش آمدید'.format(update.message.from_user.first_name), reply_markup=reply_markup)
+    update.message.reply_text(""" سلام.
+خوش آمدید.
+با ساخت  کارت ویزیت رایگان خود در قرعه کشی صدها کارت هدیه و شارژ همراه اول و ایرانسل شرکت کنید.""", reply_markup=reply_markup)
 
 
 def example_handler(bot, update):
