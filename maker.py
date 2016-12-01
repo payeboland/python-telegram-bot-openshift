@@ -20,7 +20,7 @@ def maker1_f(name,phone,desc,email,website):
     draw.text_encoding = 'utf-8'
     
     font = ImageFont.truetype("titr.ttf", 60, encoding='unic')
-    phone = phone.decode('utf-8')
+    #phone = phone.decode('utf-8')
     disp=arabic_reshaper.reshape(phone)
     disp = get_display(disp)
     draw.text((img.width / 3 -15*len(desc) + 200 , img.height/2 + 400),disp,(255,255,255),font=font)
@@ -34,7 +34,7 @@ def maker1_f(name,phone,desc,email,website):
 
     font = ImageFont.truetype("titr.ttf", 110, encoding='unic')
     name=' '+name
-    name = name.decode('utf-8')
+    #name = name.decode('utf-8')
     namedisp=arabic_reshaper.reshape(name)
     namedisp = get_display(namedisp)
     draw.text((img.width / 2 -25*len(name) , img.height/2 - 40 ),namedisp,(255,255,255),font=font)
@@ -42,7 +42,7 @@ def maker1_f(name,phone,desc,email,website):
 
     font = ImageFont.truetype("Yekan.ttf", 73 , encoding='unic')
     desc=' '+desc
-    desc = desc.decode('utf-8')
+    #desc = desc.decode('utf-8')
     descdisp=arabic_reshaper.reshape(desc)
     descdisp = get_display(descdisp)
     draw.text((img.width / 2 -17*len(desc) , img.height/2 +200),descdisp,(255,255,255),font=font)
@@ -70,7 +70,7 @@ def maker1_b(back,backsub):
     
     font = ImageFont.truetype("titr.ttf", 205, encoding='unic')
     back=' '+back
-    back = back.decode('utf-8')
+    #back = back.decode('utf-8')
     namedisp=arabic_reshaper.reshape(back)
     namedisp = get_display(namedisp)
     draw.text((img.width / 2 -40*len(back) , img.height/2 - 200 ),namedisp,(255,255,255),font=font)
@@ -79,7 +79,7 @@ def maker1_b(back,backsub):
 
     font = ImageFont.truetype("Yekan.ttf", 88, encoding='unic')
     backsub=' '+backsub
-    backsub = backsub.decode('utf-8')
+    #backsub = backsub.decode('utf-8')
     descdisp=arabic_reshaper.reshape(backsub)
     descdisp = get_display(descdisp)
     draw.text((img.width / 2 -19*len(backsub) , img.height/2 +175),descdisp,(255,255,255),font=font)
