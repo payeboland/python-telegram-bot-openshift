@@ -77,19 +77,14 @@ def example_handler(bot, update):
         status='l'
         mailtext = update.message.text
         mail=mailtext
-        bot.send_message(
-            update.message.chat_id,
-            text="مرحله ی هفتم: نام خود را به انگلیسی وارد کنید."
-            )  
+        update.message.reply_text("مرحله ی هفتم: نام خود را به انگلیسی وارد کنید.") 
 
     elif status=='l':
         status='t'
         backtext = update.message.text
         back=backtext
-        bot.send_message(
-            update.message.chat_id,
-            text="مرحله ی هشتم: سمت خود را به انگلیسی وارد کنید.."
-            )  
+        update.message.reply_text("مرحله ی هشتم: سمت خود را به انگلیسی وارد کنید.")
+     
 
     elif status=='t':
         status='d'
@@ -105,7 +100,7 @@ def example_handler(bot, update):
             bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1_b(back,sub), 'rb'))
 
         fd = open('res.csv','a')
-        fd.write(myCsvRow)
+        fd.write(name+","+desc)
         fd.close()
 
     else :  
@@ -125,16 +120,12 @@ def button(bot, update):
         keyboard = [[InlineKeyboardButton("پس زمینه ی شماره ۱", callback_data='bg1'),InlineKeyboardButton("پس  زمینه ی شماره ۲", callback_data='bg2')]]
 
         reply_markup = InlineKeyboardMarkup(keyboard)
-        bot.editMessageText(text="مرحله ی دوم: انتخاب پس زمینه",
-                        chat_id=query.message.chat_id,
-                        message_id=query.message.message_id , reply_markup=reply_markup)
+        update.message.reply_text("مرحله ی دوم: انتخاب پس زمینه" , reply_markup=reply_markup)
+
     
     elif status[0]=='b':
         background=status
-        bot.editMessageText(text="مرحله ی سوم: لطفا نام مورد نظر خود برای درج روی کارت را بنویسید.",
-                        chat_id=query.message.chat_id,
-                        message_id=query.message.message_id)
-
+        update.message.reply_text("مرحله ی سوم: لطفا نام مورد نظر خود برای درج روی کارت را بنویسید.")
 
 
 
