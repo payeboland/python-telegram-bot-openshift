@@ -23,7 +23,7 @@ def maker1_f(name,phone,desc,email,website):
     #phone = phone.decode('utf-8')
     disp=arabic_reshaper.reshape(phone)
     disp = get_display(disp)
-    draw.text((img.width / 3 -15*len(desc) -100 , img.height/2 + 400),disp,(255,255,255),font=font)
+    draw.text((img.width / 3 -15*len(desc) +20 , img.height/2 + 400),disp,(255,255,255),font=font)
 
 
     font = ImageFont.truetype("Georgia.ttf", 46, encoding='unic')
