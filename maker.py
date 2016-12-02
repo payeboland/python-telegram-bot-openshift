@@ -23,7 +23,7 @@ def maker1_f(name,phone,desc,email,website):
     #phone = phone.decode('utf-8')
     disp=arabic_reshaper.reshape(phone)
     disp = get_display(disp)
-    draw.text((img.width / 3 -15*len(desc)-150 , img.height/2 + 400),disp,(255,255,255),font=font)
+    draw.text((img.width / 3 -15*len(desc) , img.height/2 + 400),disp,(255,255,255),font=font)
 
 
     font = ImageFont.truetype("Georgia.ttf", 46, encoding='unic')
@@ -66,12 +66,12 @@ def maker1_b(back,backsub):
     draw.text_antialias = True
     draw.text_encoding = 'utf-8'
     
-    font = ImageFont.truetype("Georgia.ttf", 205, encoding='unic')
+    font = ImageFont.truetype("Georgia.ttf", 180, encoding='unic')
     back=' '+back
     #back = back.decode('utf-8')
     #namedisp=arabic_reshaper.reshape(back)
     #namedisp = get_display(namedisp)
-    draw.text((img.width / 2 -40*len(back) , img.height/2 - 200 ),back,(255,255,255),font=font)
+    draw.text((img.width / 2 -45*len(back) , img.height/2 - 200 ),back,(255,255,255),font=font)
 
 
 
