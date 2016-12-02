@@ -35,7 +35,9 @@ def maker1_f(name,phone,desc,email,website):
     #name = name.decode('utf-8')
     namedisp=arabic_reshaper.reshape(name)
     namedisp = get_display(namedisp)
-    draw.text((img.width / 2 -25*len(name) , img.height/2 - 40 ),namedisp,(255,255,255),font=font)
+
+    w, h = draw.textsize(back,font)
+    draw.text(( (img.width -w)/2 , img.height/2 - 40 ),namedisp,(255,255,255),font=font)
 
 
     font = ImageFont.truetype("Yekan.ttf", 73 , encoding='unic')
@@ -58,6 +60,7 @@ def maker1_f(name,phone,desc,email,website):
 def maker1_b(back,backsub):
     img = Image.open("b1.png")
     draw = ImageDraw.Draw(img)
+    W,H = img.size
     # font = ImageFont.truetype(<font-file>, <font-size>)
     font = ImageFont.truetype("titr.ttf", 16, encoding='unic')
     # draw.text((x, y),"Sample Text",(r,g,b))
@@ -66,12 +69,14 @@ def maker1_b(back,backsub):
     draw.text_antialias = True
     draw.text_encoding = 'utf-8'
     
-    font = ImageFont.truetype("Georgia.ttf", 180, encoding='unic')
+    font = ImageFont.truetype("Georgia.ttf", 205, encoding='unic')
     back=' '+back
     #back = back.decode('utf-8')
     #namedisp=arabic_reshaper.reshape(back)
     #namedisp = get_display(namedisp)
-    draw.text((img.width / 2 -45*len(back) , img.height/2 - 200 ),back,(255,255,255),font=font)
+    w, h = draw.textsize(back,font)
+  
+    draw.text( ( (W-w)/2,(H-h)/2 - 250 ) ,back,(255,255,255),font=font)
 
 
 
@@ -80,7 +85,8 @@ def maker1_b(back,backsub):
     #backsub = backsub.decode('utf-8')
     #descdisp=arabic_reshaper.reshape(backsub)
     #descdisp = get_display(descdisp)
-    draw.text((img.width / 2 -19*len(backsub) , img.height/2 +175),backsub,(255,255,255),font=font)
+    w, h = draw.textsize(backsub,font)
+    draw.text(( (W-w)/2 , img.height/2),backsub,(255,255,255),font=font)
 
 
 
