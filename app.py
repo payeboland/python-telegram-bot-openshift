@@ -126,8 +126,9 @@ def button(bot, update):
     
     elif status[0]=='b':
         background=status
-        update.message.reply_text("مرحله ی سوم: لطفا نام مورد نظر خود برای درج روی کارت را بنویسید.")
-
+        bot.editMessageText(text="مرحله ی سوم: لطفا نام مورد نظر خود برای درج روی کارت را بنویسید.",
+                        chat_id=query.message.chat_id,
+                        message_id=query.message.message_id , reply_markup=reply_markup)
 
 
 # Write your handlers here
