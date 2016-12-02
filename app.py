@@ -120,8 +120,9 @@ def button(bot, update):
         keyboard = [[InlineKeyboardButton("پس زمینه ی شماره ۱", callback_data='bg1'),InlineKeyboardButton("پس  زمینه ی شماره ۲", callback_data='bg2')]]
 
         reply_markup = InlineKeyboardMarkup(keyboard)
-        update.message.reply_text("مرحله ی دوم: انتخاب پس زمینه" , reply_markup=reply_markup)
-
+        bot.editMessageText(text="مرحله ی دوم: انتخاب پس زمینه",
+                        chat_id=query.message.chat_id,
+                        message_id=query.message.message_id , reply_markup=reply_markup)
     
     elif status[0]=='b':
         background=status
