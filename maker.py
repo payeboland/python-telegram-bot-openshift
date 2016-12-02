@@ -66,7 +66,7 @@ def maker1_b(back,backsub):
     draw.text_antialias = True
     draw.text_encoding = 'utf-8'
     
-    font = ImageFont.truetype("titr.ttf", 205, encoding='unic')
+    font = ImageFont.truetype("Georgia.ttf", 205, encoding='unic')
     back=' '+back
     #back = back.decode('utf-8')
     #namedisp=arabic_reshaper.reshape(back)
@@ -75,7 +75,7 @@ def maker1_b(back,backsub):
 
 
 
-    font = ImageFont.truetype("Yekan.ttf", 88, encoding='unic')
+    font = ImageFont.truetype("Georgia.ttf", 88, encoding='unic')
     backsub=' '+backsub
     #backsub = backsub.decode('utf-8')
     #descdisp=arabic_reshaper.reshape(backsub)
