@@ -58,45 +58,28 @@ def example_handler(bot, update):
         status='n'
         nametext = update.message.text
         name=nametext
-        bot.send_message(
-            update.message.chat_id,
-            text="مرحله ی چهارم: شماره ی تلفنی که می خواهید روی کارت درج شود را وارد کنید."
-            )  
+        update.message.reply_text(  "مرحله ی چهارم: شماره ی تلفنی که می خواهید روی کارت درج شود را وارد کنید.")  
 
     elif status=='n':
         status='i'
         phonetext = update.message.text
         phone=phonetext
-        bot.send_message(
-            update.message.chat_id,
-            text="مرحله ی پنجم: سمت خود را برای درج روی کارت وارد کنید."
-            )  
+        update.message.reply_text(  "مرحله ی پنجم: سمت خود را برای درج روی کارت وارد کنید.")  
 
     elif status=='i':
-        status='j'
+        status='k'
         desctext = update.message.text
         desc=desctext
-        bot.send_message(
-            update.message.chat_id,
-            text="مرحله ی ششم: آدرس ایمیل خود را وارد کنید. (حداکثر ۱۹ کاراکتر(."
-            ) 
-
-    elif status=='j':
-        status='k'
+        update.message.reply_text("مرحله ی ششم: آدرس ایمیل خود را وارد کنید.")  
+    
+ 
+    elif status=='k':
+        status='l'
         mailtext = update.message.text
         mail=mailtext
         bot.send_message(
             update.message.chat_id,
-            text="مرحله ی هفتم: آدرس وب سایت خود را وارد کنید. (حداکثر ۲۵ کاراکتر(."
-            ) 
- 
-    elif status=='k':
-        status='l'
-        sitetext = update.message.text
-        site=sitetext
-        bot.send_message(
-            update.message.chat_id,
-            text="مرحله ی نهم: توضیحات مربوط به پشت کارت را وارد کنید."
+            text="مرحله ی هفتم: نام خود را به انگلیسی وارد کنید."
             )  
 
     elif status=='l':
@@ -105,7 +88,7 @@ def example_handler(bot, update):
         back=backtext
         bot.send_message(
             update.message.chat_id,
-            text="مرحله ی دهم: زیر نویس مربوط به پشت کارت را وارد کنید."
+            text="مرحله ی هشتم: سمت خود را به انگلیسی وارد کنید.."
             )  
 
     elif status=='t':
@@ -116,9 +99,14 @@ def example_handler(bot, update):
         if background=='bg1':
             bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1_f(name,phone,desc,mail,site), 'rb'))
             bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1_b(back,sub), 'rb'))
+
         elif background=='bg2':
             bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1_f(name,phone,desc,mail,site), 'rb'))
             bot.sendPhoto(chat_id=update.message.chat_id, photo=open(maker.maker1_b(back,sub), 'rb'))
+
+        fd = open('res.csv','a')
+        fd.write(myCsvRow)
+        fd.close()
 
     else :  
         bot.send_message(

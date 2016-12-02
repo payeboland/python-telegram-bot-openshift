@@ -29,8 +29,6 @@ def maker1_f(name,phone,desc,email,website):
     font = ImageFont.truetype("Georgia.ttf", 46, encoding='unic')
     draw.text((img.width / 3 -10*len(email) + 380 , img.height/2 + 420),email,(255,255,255),font=font)
 
-    font = ImageFont.truetype("Georgia.ttf", 46, encoding='unic')
-    draw.text((img.width / 3 -10*len(website) + 980 , img.height/2 + 420),website,(255,255,255),font=font)
 
     font = ImageFont.truetype("titr.ttf", 110, encoding='unic')
     name=' '+name
@@ -71,8 +69,8 @@ def maker1_b(back,backsub):
     font = ImageFont.truetype("titr.ttf", 205, encoding='unic')
     back=' '+back
     #back = back.decode('utf-8')
-    namedisp=arabic_reshaper.reshape(back)
-    namedisp = get_display(namedisp)
+    #namedisp=arabic_reshaper.reshape(back)
+    #namedisp = get_display(namedisp)
     draw.text((img.width / 2 -40*len(back) , img.height/2 - 200 ),namedisp,(255,255,255),font=font)
 
 
@@ -80,8 +78,8 @@ def maker1_b(back,backsub):
     font = ImageFont.truetype("Yekan.ttf", 88, encoding='unic')
     backsub=' '+backsub
     #backsub = backsub.decode('utf-8')
-    descdisp=arabic_reshaper.reshape(backsub)
-    descdisp = get_display(descdisp)
+    #descdisp=arabic_reshaper.reshape(backsub)
+    #descdisp = get_display(descdisp)
     draw.text((img.width / 2 -19*len(backsub) , img.height/2 +175),descdisp,(255,255,255),font=font)
 
 
