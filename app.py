@@ -44,6 +44,10 @@ def start(bot, update):
 با ساخت  کارت ویزیت رایگان خود در قرعه کشی صدها کارت هدیه و شارژ همراه اول و ایرانسل شرکت کنید.""", reply_markup=reply_markup)
 
 
+def file(bot, update):	
+    bot.sendPhoto(chat_id=update.message.chat_id, photo=open('res.csv', 'rb'))
+
+
 def example_handler(bot, update):
     global status
     global name
@@ -147,6 +151,7 @@ def setup(webhook_url=None):
         dp = updater.dispatcher
 
     dp.add_handler(CommandHandler('start', start))
+    dp.add_handler(CommandHandler('file', start))
     dp.add_handler(MessageHandler([], example_handler))
     dp.add_handler(CallbackQueryHandler(button))
 

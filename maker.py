@@ -37,7 +37,7 @@ def maker1_f(name,phone,desc,email,website):
     namedisp = get_display(namedisp)
 
     w, h = draw.textsize(namedisp,font)
-    draw.text(( (img.width -w)/2 , img.height/2 - 70 ),namedisp,(255,255,255),font=font)
+    draw.text(( (img.width -w)/2 , img.height/2 - 66 ),namedisp,(255,255,255),font=font)
 
 
     font = ImageFont.truetype("Yekan.ttf", 73 , encoding='unic')
